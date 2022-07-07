@@ -1,0 +1,49 @@
+<html lang="en">
+  <head>
+    {{>headerlinks}}
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- navbar -->
+    {{>navbar}}
+
+    <!-- main header -->
+    <div class="container-fluid weather main_header">
+      <div class="inputform">
+        <input type="text" placeholder="enter the city name" id="input_city" value="">
+        <button type="submit" onClick="fun()">search</button>
+      </div>
+      <div class="output_box">
+        <div class="output_toplayer">
+          <p id="din">tuesday</p>
+          <p id="date">13 oct</p>
+        </div>
+        <div class="output_body ">
+          <p id="jagah">Get Output here</p>
+          <div class="res data_hide">
+           <p id="data_hide"><span id="temp"> 29.78</span><sup>o</sup> C</p>
+           <p id="status">
+            <i class="fa-solid fa-sun" style="color: #eccc68;"></i>
+           </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    {{>footer}}
+    <script>
+      
+      const month=["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"];
+      const dinn=["Sun","Mon","Tues","Wed","Thrus","Fri","Sat","Sun"];
+      const dinset=document.querySelector("#din");
+      const dateset=document.querySelector("#date");
+      const data=new Date();
+      const din=data.getDay();
+      const date=data.getDate();
+      const mon=data.getMonth();
+      dinset.innerHTML=dinn[din];
+      dateset.innerHTML=`${date} ${month[mon]}`;
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
